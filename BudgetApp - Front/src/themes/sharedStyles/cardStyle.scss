@@ -1,0 +1,172 @@
+.card-container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40px;
+  .card {
+    box-shadow: 0px 8px 24px 8px rgba(198, 198, 198, 0.25);
+    border-radius: 12px;
+    color: $dark-blue;
+    .card-title {
+      background: $dark-blue;
+      color: $white;
+      border-radius: 12px 12px 0 0;
+      display: flex;
+      gap: 8px;
+      justify-content: flex-start;
+      align-items: center;
+      height: 48px;
+      padding-left: 16px;
+    }
+    .card-body {
+      margin: 16px;
+      border-bottom: 1px solid #CFD4E5;
+      display: flex;
+      justify-content: space-between;
+      h4 {
+        font-size: 36px;
+        font-weight: 700;
+      }
+      h5 {
+        font-size: 16px;
+        font-weight: 700;
+      }
+      p {
+        padding: 16px 0;
+        font-size: 16px;
+        font-weight: 500;
+      }
+      .filter-button {
+        width: 240px;
+        height: 32px;
+        color: $white;
+        font-size: 16px;
+        font-weight: 700;
+        border: none;
+        border-radius: 16px;
+      }
+      .label {
+        background: #73BCFF;
+      }
+    }
+    .card-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 16px;
+      .gain {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .income {
+        color: #00D67C;
+      }
+      .expense {
+        color: #F22C00;
+      }
+      .button-container {
+        display: flex;
+        gap: 16px;
+        button {
+          font-size: 16px;
+          font-weight: 700;
+          padding: 0 40px;
+          height: 40px;
+          border-radius: 8px;
+          cursor: pointer;
+        }
+        .edit {
+          border: 2px solid $dark-blue;
+          background: none;
+        }
+        .delete {
+          color: $white;
+          border: none;
+          background: #FF3636;
+        }
+      }
+    }
+    .card-date {
+      padding: 8px 16px 16px 16px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 40px;
+      color: #737680;
+      p {
+        font-size: 14px;
+        font-weight: 300;
+        span {
+          font-size: 14px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+.popUp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .overlay {
+    inset: 0;
+    position: fixed;
+    background: rgba(0, 0, 0, 25%);
+  }
+  .popUp-box {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    background: $white;
+    box-shadow: 0 8px 24px 8px rgba(198, 198, 198, 0.25);
+    border-radius: 12px;
+    color: $dark-blue;
+    padding: 40px;
+    h3 {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 700;
+    }
+    p {
+      text-align: center;
+      font-size: 16px;
+    }
+    .button-container {
+      display: flex;
+      flex-flow: row wrap-reverse;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+    }
+    button {
+      font-size: 16px;
+      font-weight: 700;
+      padding: 0 40px;
+      height: 40px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .continue {
+      color: $white;
+      background: #FF3636;
+      border: none;
+    }
+    .cancel {
+      background: none;
+      border: 2px solid $dark-blue;
+      color: $dark-blue;
+    }
+  }
+}
+

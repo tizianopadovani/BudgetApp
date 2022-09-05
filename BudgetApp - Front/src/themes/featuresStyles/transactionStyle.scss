@@ -1,0 +1,154 @@
+.transaction-container {
+  min-height: calc(100vh - 120px - 51px);
+  .transaction-title-container {
+    background: $light-blue;
+    color: $dark-blue;
+    .transaction-title {
+      max-width: 1140px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: auto;
+      height: 112px;
+      h2 {
+        font-size: 40px;
+        font-weight: 700;
+      }
+      button {
+        font-weight: 700;
+        font-size: 16px;
+        border-radius: 8px;
+        min-width: 240px;
+        min-height: 56px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        cursor: pointer;
+      }
+    }
+  }
+  .transaction {
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1140px;
+    .filter-card{
+      box-shadow: 0px 8px 24px 8px rgba(198, 198, 198, 0.25);
+      border-radius: 12px;
+      width: 100%;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 24px;
+      .filter-title {
+        width: 100%;
+        color: $dark-blue;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 16px;
+        cursor: pointer;
+        user-select: none;
+      }
+      .type-container, .category-container {
+        span {
+          font-size: 16px;
+        }
+        .button-container {
+          margin-top: 16px;
+          display: flex;
+          flex-flow: row wrap;
+          gap: 16px;
+          .filter-button{
+            font-weight: 700;
+            color: $white;
+            border: none;
+            border-radius: 16px;
+            padding: 8px 16px;
+            cursor: pointer;
+          }
+          .expense {
+             background: #F22C00;
+           }
+          .income {
+            background: #00D67C;
+          }
+          .label {
+            background: #73BCFF;
+          }
+        }
+      }
+    }
+    .transaction-card {
+      width: 100%;
+      padding: 40px 0;
+    }
+  }
+  .noTransaction {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+    min-height: calc(100vh - 120px - 51px - 112px);
+    p {
+      font-weight: 600;
+      font-size: 40px;
+      color: #737680;
+    }
+    button {
+      font-weight: 700;
+      font-size: 16px;
+      border-radius: 8px;
+      min-width: 240px;
+      min-height: 56px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+    }
+  }
+
+  @media screen and (max-width: 1199px) {
+    .transaction-title-container {
+      .transaction-title {
+        max-width: 960px;
+      }
+    }
+    .transaction {
+      max-width: 960px;
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    .transaction-title-container {
+      .transaction-title {
+        max-width: 720px;
+      }
+    }
+    .transaction {
+        max-width: 720px;
+    }
+  }
+
+  @media screen and (max-width: 767px){
+    .transaction-title-container {
+      .transaction-title {
+        max-width: 100%;
+        padding: 0 16px;
+      }
+    }
+    .transaction {
+      max-width: 100%;
+      padding: 0 16px;
+    }
+  }
+
+}

@@ -1,0 +1,107 @@
+.home-container {
+  background: radial-gradient(55.52% 140.88% at 73.47% 37.94%, #1D284D 0%, #131931 100%);
+  .home {
+    margin: auto;
+    min-height: calc(100vh - 120px - 51px);
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1140px;
+    .last-access {
+      color: $white;
+      text-align: right;
+      width: 100%;
+      margin: 40px 0;
+    }
+    .home-info {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      h2 {
+        font-weight: 700;
+        font-size: 64px;
+        text-align: center;
+      }
+      h3 {
+        font-weight: 500;
+        font-size: 40px;
+        text-align: center;
+        span {
+          font-weight: 700;
+        }
+      }
+      .button-container {
+        display: flex;
+        justify-content: center;
+        flex-flow: row wrap-reverse;
+        gap: 40px;
+        button {
+          font-weight: 700;
+          font-size: 18px;
+          border-radius: 8px;
+          min-width: 300px;
+          min-height: 64px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 16px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 1199px) {
+    .home {
+      max-width: 960px;
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    .home {
+      max-width: 720px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .home {
+      max-width: 100%;
+      padding: 0 16px;
+      .home-info {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        .button-container {
+          gap: 16px;
+          button {
+            min-height: 56px;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    .home {
+      .home-info {
+        h2 {
+          font-size: 32px;
+        }
+        h3 {
+          font-size: 20px;
+        }
+        .button-container {
+          width: 100%;
+          button {
+            min-width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

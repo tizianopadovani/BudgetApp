@@ -1,0 +1,44 @@
+$white: #FFFFFF;
+$dark-blue: #131931;
+$light-blue: #E5EBFF;
+$yellow: #E99C08;
+
+@import "font-awesome";
+@import "themes/coreStyles/headerStyle";
+@import "themes/coreStyles/footerStyle";
+@import "themes/featuresStyles/homeStyle";
+@import "themes/featuresStyles/transactionStyle";
+@import "themes/sharedStyles/cardStyle.scss";
+@import "themes/sharedStyles/spinnerStyle.scss";
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  * {
+    box-sizing: border-box;
+  }
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+  }
+  button {
+    font-family: 'Montserrat', sans-serif;
+  }
+  .filled {
+    color: $dark-blue;
+    background: $yellow;
+    border: none;
+    transition: ease-in-out 400ms;
+    &:hover {
+      background: #F7A912;
+    }
+  }
+  .outlined {
+    color: $white;
+    background: none;
+    border: 2px solid $white;
+    transition: ease-in-out 400ms;
+    &:hover {
+      background: #FFFFFF0A;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+<div class="edit-transaction">
+  <form [formGroup]="editTransactionForm" (ngSubmit)="submit()">
+    <div>
+      <label for="transactionDate">Transaction Date</label>
+      <input type="date" id="transactionDate" formControlName="transactionDate"/>
+    </div>
+    <div>
+      <label for="amount">Amount</label>
+      <input type="number" id="amount" formControlName="amount"/>
+    </div>
+    <div>
+      <label>
+        <input
+          type="radio"
+          value="true"
+          formControlName="isIncome"
+          [checked]="this.obj?.isIncome"
+        />
+        Income
+      </label>
+      <label>
+        <input
+          type="radio"
+          value="false"
+          formControlName="isIncome"
+          [checked]="this.obj?.isIncome === false"
+        />
+        Expense
+      </label>
+    </div>
+    <div>
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description"></textarea>
+    </div>
+    <div>
+      <label for="label">Label</label>
+      <input id="label" type="text" formControlName="label"/>
+    </div>
+    <div>
+      <label for="wallet_id">Wallet</label>
+      <select id="wallet_id" formControlName="wallet_id">
+       <option
+         *ngFor="let w of walletList"
+         value="{{w.id}}"
+         selected="{{w.id === this.obj?.walletResponseDTO?.id}}"
+       >
+         {{w.name}}
+       </option>
+      </select>
+    </div>
+    <div>
+      <button type="submit">Edit</button>
+    </div>
+  </form>
+</div>

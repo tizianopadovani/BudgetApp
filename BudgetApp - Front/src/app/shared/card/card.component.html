@@ -1,0 +1,62 @@
+<div class="card-container" *ngFor="let obj of transactionList">
+  <div class="card">
+    <div class="card-title">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 8C0 6.93913 0.421427 5.92172 1.17157 5.17157C1.92172 4.42143 2.93913 4 4 4H28C29.0609 4 30.0783 4.42143 30.8284 5.17157C31.5786 5.92172 32 6.93913 32 8V24C32 25.0609 31.5786 26.0783 30.8284 26.8284C30.0783 27.5786 29.0609 28 28 28H4C2.93913 28 1.92172 27.5786 1.17157 26.8284C0.421427 26.0783 0 25.0609 0 24V8ZM4 6C3.46957 6 2.96086 6.21071 2.58579 6.58579C2.21071 6.96086 2 7.46957 2 8V10H30V8C30 7.46957 29.7893 6.96086 29.4142 6.58579C29.0391 6.21071 28.5304 6 28 6H4ZM30 14H2V24C2 24.5304 2.21071 25.0391 2.58579 25.4142C2.96086 25.7893 3.46957 26 4 26H28C28.5304 26 29.0391 25.7893 29.4142 25.4142C29.7893 25.0391 30 24.5304 30 24V14Z" fill="white"/>
+        <path d="M4 20C4 19.4696 4.21071 18.9609 4.58579 18.5858C4.96086 18.2107 5.46957 18 6 18H8C8.53043 18 9.03914 18.2107 9.41421 18.5858C9.78929 18.9609 10 19.4696 10 20V22C10 22.5304 9.78929 23.0391 9.41421 23.4142C9.03914 23.7893 8.53043 24 8 24H6C5.46957 24 4.96086 23.7893 4.58579 23.4142C4.21071 23.0391 4 22.5304 4 22V20Z" fill="white"/>
+      </svg>
+      <h3>Bank account</h3>
+    </div>
+    <div class="card-body">
+      <div>
+        <h4>{{obj.amount | number : '1.2-2'}} EUR</h4>
+        <h5>on {{obj.transactionDate | dateFormat}}</h5>
+        <p class="description">{{obj.description}}</p>
+      </div>
+      <div *ngIf="obj.label.trim() != ''">
+        <button class="filter-button label">{{obj.label}}</button>
+      </div>
+    </div>
+    <div class="card-foot">
+      <div>
+        <div class="gain income" *ngIf="obj.isIncome">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.00003 20.25C3.00003 20.4489 3.07905 20.6397 3.2197 20.7803C3.36035 20.921 3.55112 21 3.75003 21L12.75 21C12.9489 21 13.1397 20.921 13.2804 20.7803C13.421 20.6397 13.5 20.4489 13.5 20.25C13.5 20.0511 13.421 19.8603 13.2804 19.7197C13.1397 19.579 12.9489 19.5 12.75 19.5L5.56053 19.5L20.781 4.281C20.8508 4.21127 20.9061 4.12849 20.9438 4.03738C20.9816 3.94627 21.001 3.84862 21.001 3.75C21.001 3.65139 20.9816 3.55374 20.9438 3.46263C20.9061 3.37152 20.8508 3.28873 20.781 3.219C20.7113 3.14927 20.6285 3.09395 20.5374 3.05622C20.4463 3.01848 20.3486 2.99905 20.25 2.99905C20.1514 2.99905 20.0538 3.01848 19.9627 3.05622C19.8715 3.09395 19.7888 3.14927 19.719 3.219L4.50003 18.4395V11.25C4.50003 11.0511 4.42101 10.8603 4.28036 10.7197C4.13971 10.579 3.94894 10.5 3.75003 10.5C3.55112 10.5 3.36035 10.579 3.2197 10.7197C3.07905 10.8603 3.00003 11.0511 3.00003 11.25V20.25Z" fill="#00D67C"/>
+          </svg>
+          <span>Income</span>
+        </div>
+        <div class="gain expense" *ngIf="!obj.isIncome">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M21 3.75C21 3.55109 20.921 3.36032 20.7803 3.21967C20.6396 3.07902 20.4489 3 20.25 3H11.25C11.0511 3 10.8603 3.07902 10.7196 3.21967C10.579 3.36032 10.5 3.55109 10.5 3.75C10.5 3.94891 10.579 4.13968 10.7196 4.28033C10.8603 4.42098 11.0511 4.5 11.25 4.5H18.4395L3.21897 19.719C3.14924 19.7887 3.09392 19.8715 3.05619 19.9626C3.01845 20.0537 2.99902 20.1514 2.99902 20.25C2.99902 20.3486 3.01845 20.4463 3.05619 20.5374C3.09392 20.6285 3.14924 20.7113 3.21897 20.781C3.2887 20.8507 3.37149 20.906 3.4626 20.9438C3.5537 20.9815 3.65135 21.0009 3.74997 21.0009C3.84859 21.0009 3.94624 20.9815 4.03735 20.9438C4.12845 20.906 4.21124 20.8507 4.28097 20.781L19.5 5.5605V12.75C19.5 12.9489 19.579 13.1397 19.7196 13.2803C19.8603 13.421 20.0511 13.5 20.25 13.5C20.4489 13.5 20.6396 13.421 20.7803 13.2803C20.921 13.1397 21 12.9489 21 12.75V3.75Z" fill="#F22C00"/>
+          </svg>
+          <span>Expense</span>
+        </div>
+      </div>
+      <div class="button-container">
+        <button class="edit" [routerLink]="['./edit-transaction', obj.id]">EDIT</button>
+        <button class="delete" (click)="openPopUp(obj)">DELETE</button>
+      </div>
+    </div>
+    <div class="card-date">
+      <p>Update at: <span>{{obj.updatedAt ? (obj.updatedAt | dateFormat) : "-"}}</span></p>
+      <p>Created at: <span>{{obj.createdAt | dateFormat}}</span></p>
+    </div>
+  </div>
+</div>
+
+<div class="popUp" *ngIf="this.popUp">
+  <div class="overlay" (click)="closePopUp()"></div>
+  <div class="popUp-box">
+    <h3>Are you sure you want to delete it?</h3>
+    <p>By clicking <strong>DELETE</strong> the transaction will be deleted permanently and it cannot be recovered!</p>
+    <div class="button-container">
+      <button class="cancel" (click)="closePopUp()">CANCEL</button>
+      <button class="continue" (click)="sendTransactionToDelete()">DELETE</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+

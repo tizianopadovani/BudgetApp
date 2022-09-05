@@ -1,0 +1,53 @@
+<div class="transaction-container">
+  <div class="transaction-title-container">
+    <div class="transaction-title" *ngIf="!showSpinner">
+      <h2>Transactions</h2>
+      <button class="filled" *ngIf="transactionList.length > 0"><span>ADD TRANSACTION</span></button>
+    </div>
+  </div>
+  <div class="transaction" *ngIf="transactionList.length > 0 && !showSpinner else noTransaction">
+      <div class="filter-card">
+        <div class="filter-title" (click)="openFilter()">
+          <h2>Filters</h2>
+          <div [ngStyle]="this.isOpen ? {'rotate':'0deg'} : {'rotate': '180deg'}">
+            <svg width="34" height="19" viewBox="0 0 34 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M32.885 17.885C32.7689 18.0014 32.631 18.0938 32.4791 18.1568C32.3272 18.2198 32.1644 18.2523 32 18.2523C31.8356 18.2523 31.6728 18.2198 31.5209 18.1568C31.3691 18.0938 31.2311 18.0014 31.115 17.885L17 3.76752L2.88503 17.885C2.7688 18.0012 2.63083 18.0934 2.47898 18.1563C2.32714 18.2192 2.16438 18.2516 2.00002 18.2516C1.83566 18.2516 1.67291 18.2192 1.52106 18.1563C1.36922 18.0934 1.23124 18.0012 1.11502 17.885C0.998806 17.7688 0.906612 17.6308 0.843716 17.479C0.780819 17.3271 0.748447 17.1644 0.748447 17C0.748447 16.8357 0.780819 16.6729 0.843716 16.5211C0.906612 16.3692 0.998806 16.2312 1.11502 16.115L16.115 1.11503C16.2311 0.998617 16.3691 0.906261 16.5209 0.843245C16.6728 0.78023 16.8356 0.747791 17 0.747791C17.1644 0.747791 17.3272 0.78023 17.4791 0.843245C17.631 0.906261 17.7689 0.998617 17.885 1.11503L32.885 16.115C33.0014 16.2311 33.0938 16.3691 33.1568 16.5209C33.2198 16.6728 33.2523 16.8356 33.2523 17C33.2523 17.1644 33.2198 17.3272 33.1568 17.4791C33.0938 17.631 33.0014 17.7689 32.885 17.885Z" fill="#131931"/>
+            </svg>
+          </div>
+        </div>
+        <div class="type-container" *ngIf="this.isOpen">
+          <span>Type:</span>
+          <div class="button-container">
+            <button class="filter-button expense"><span>Expense</span></button>
+            <button class="filter-button income"><span>Income</span></button>
+          </div>
+        </div>
+        <div class="category-container" *ngIf="this.isOpen">
+          <span>Category:</span>
+          <div class="button-container">
+            <button *ngFor="let l of labelList" class="filter-button label"><span>{{l}}</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="transaction-card" *ngIf="!showSpinner">
+          <app-card
+            [transactionList]="transactionList"
+            [obj]="obj"
+            (transactionDeleteEmitter)="deleteTransaction($event)"
+          ></app-card>
+      </div>
+  </div>
+  <div *ngIf="showSpinner">
+    <app-spinner
+      [showSpinner]="showSpinner"
+    ></app-spinner>
+  </div>
+</div>
+<app-footer style="color: #131931"></app-footer>
+
+<ng-template #noTransaction>
+  <div class="noTransaction" *ngIf="!showSpinner">
+    <p>You don't have any transaction yet!</p>
+    <button class="filled"><span>ADD TRANSACTION</span></button>
+  </div>
+</ng-template>
