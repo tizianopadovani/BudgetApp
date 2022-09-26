@@ -35,6 +35,9 @@
             [obj]="obj"
             (transactionDeleteEmitter)="deleteTransaction($event)"
           ></app-card>
+          <div>
+            <button class="" [routerLink]="['table-transaction']">Export Table</button>
+          </div>
       </div>
   </div>
   <div *ngIf="showSpinner">

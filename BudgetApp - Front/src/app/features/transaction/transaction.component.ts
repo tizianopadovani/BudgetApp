@@ -39,7 +39,7 @@ export class TransactionComponent implements OnInit, OnDestroy {
         this.transactionList = [...observer]
       },
       error => {
-        console.log(error)
+        console.log(error), this.showSpinner = false
       },
       () => {
         console.log("Transactions found!")

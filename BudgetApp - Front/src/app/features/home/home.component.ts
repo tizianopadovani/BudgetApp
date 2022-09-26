@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.showSpinner = true;
     this.userSubscription = await this.userService.getUserById(id).subscribe(
       observer => {this.user = {...observer}},
-      error => {console.log(error)},
+      error => {console.log(error), this.showSpinner = false},
       () => {
         console.log("User found!")
         this.lastAccess = dayjs(Date.now()).format("DD MMM YYYY")
@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.showSpinner = true;
     this.walletSubscription = await this.walletService.getWalletsByUserId(id).subscribe(
       observer => {this.walletList = [...observer]},
-      error => {console.log(error)},
+      error => {console.log(error), this.showSpinner = false},
       () => {console.log("Wallets found!"), this.showSpinner = false}
     )
   }
@@ -64,7 +64,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.showSpinner = true;
     this.transactionSubscription = await this.transactionService.getTransactionsByUserId(id).subscribe(
       observer => {this.transactionList = [...observer]},
-      error => {console.log("error: ",error)},
+      error => {console.log("error: ",error), this.showSpinner = false},
       () => {console.log("Transactions found!")
         for(let t of this.transactionList){
           if(t.isIncome)

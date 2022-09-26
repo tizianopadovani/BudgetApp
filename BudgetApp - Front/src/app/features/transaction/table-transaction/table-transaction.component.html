@@ -1,0 +1,26 @@
+<div>
+  <button (click)="exportExcel()">Save as Excel</button>
+  <table id="excel-table">
+    <thead>
+      <tr>
+        <th>Wallet</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Label</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of transactionList">
+        <td>{{t.walletResponseDTO.name}}</td>
+        <td>{{t.transactionDate | dateFormat}}</td>
+        <td>{{t.isIncome ? t.amount : -t.amount}}</td>
+        <td>{{t.label}}</td>
+        <td>{{t.description}}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <span>Tot: {{this.totalAmount | number : '1.2-2'}} €</span>
+    </tfoot>
+  </table>
+</div>
