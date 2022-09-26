@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="BudgetApp:war">
+    <output-path>$PROJECT_DIR$/BudgetApp - Back/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>BudgetApp</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="BudgetApp-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="BudgetApp:war exploded" />
+    </root>
+  </artifact>
+</component>
